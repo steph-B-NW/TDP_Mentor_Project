@@ -5,8 +5,8 @@ from flask import url_for, render_template, request
 
 
 def username():
-    numbers = requests.get('http://localhost:5002').json()
-    letters = requests.get('http://localhost:5001').json()
+    numbers = requests.get('http://service3:5002').json()
+    letters = requests.get('http://service2:5001').json()
     username = ""
     for i in range(9):
         if i % 2 == 0:
@@ -25,5 +25,5 @@ def index():
 
 @app.route('/prize/<username>', methods=['GET', 'POST'])
 def prize(username):
-    prize = requests.get('http://localhost:5003/'+str(username))
+    prize = requests.get('http://service4:5003/'+str(username))
     return render_template('index1.html', username=username, prize=prize.json()['prize'])
