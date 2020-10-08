@@ -27,8 +27,8 @@ class TestBase(TestCase):
 class TestUsername(TestBase):
     def test_username(self):
         with requests_mock.mock() as m:
-            m.get('http://localhost:5002', json={'0':'0','1':'1','2':'2','3':'3','4':'4','5':'5'})
-            m.get('http://localhost:5001', json={'0':'a','1':'b','2':'c','3':'d','4':'e','5':'f'})
+            m.get('http://service3:5002', json={'0':'0','1':'1','2':'2','3':'3','4':'4','5':'5'})
+            m.get('http://service2:5001', json={'0':'a','1':'b','2':'c','3':'d','4':'e','5':'f'})
 
             response = self.client.get(
                 url_for('index')
@@ -37,7 +37,7 @@ class TestUsername(TestBase):
 
     def test_prize(self):
         with requests_mock.mock() as m:
-            m.get('http://localhost:5003/a3d4f6g4d1', json={'prize':"£100"})
+            m.get('http://service4:5003/a3d4f6g4d1', json={'prize':"£100"})
             response = self.client.get(
                 url_for('prize', username='a3d4f6g4d1')
             )
