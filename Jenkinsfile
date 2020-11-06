@@ -14,9 +14,15 @@ pipeline{
 		stage('Build services') {
 			steps {
 				image = docker.build ("[localhost:8082/service-1")
+			}
+				{
                                 image = docker.build ("[localhost:8082/service-2")
-                                image = docker.build ("[localhost:8082/service-3")
-                                image = docker.build ("[localhost:8082/service-4")
+                        }
+				{
+				image = docker.build ("[localhost:8082/service-3")
+                        }
+				{
+				image = docker.build ("[localhost:8082/service-4")
 			}
 		}
 		stage('Push images') {
