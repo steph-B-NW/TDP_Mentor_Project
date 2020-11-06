@@ -13,24 +13,9 @@ pipeline{
 		}
 		stage('Build service-1') {
 			steps {
-				image = docker.build ("[localhost:8082/service-1")
+				sh "docker-compose build"
 			}
 		}
-                stage('Build service-2') {
-                        steps {
-                                image = docker.build ("[localhost:8082/service-2")
-                        }
-                }
-                stage('Build service-3') {
-                        steps {
-                                image = docker.build ("[localhost:8082/service-3")
-                        }
-                }
-                stage('Build service-4') {
-                        steps {
-                                image = docker.build ("[localhost:8082/service-4")
-                        }
-                }
 		stage('Push images') {
 			steps {
 				script {
