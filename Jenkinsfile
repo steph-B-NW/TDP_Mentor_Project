@@ -3,7 +3,7 @@ pipeline{
 	stages {
 		stage('Install Docker') {
 			steps {
-				sh "./ansible/playbook.yaml")
+				sh ("./ansible/playbook.yaml")
 			}
 		}
 		stage('Run Tests') {
