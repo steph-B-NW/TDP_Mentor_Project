@@ -1,31 +1,9 @@
-version: "3.7"
-services:
-        service1:
-                image: localhost:8082/service-1
-                build: ./service-1
-                ports:
-                        - target: 5000
-                          published: 5000
-                          protocol: tcp
-        service2:
-                image: localhost:8082/service-2
-                build: ./service-2
-                ports:
-                        - target: 5001
-                          published: 5000
-                          protocol: tcp
-        service3:
-                image: localhost:8082/service-3
-                build: ./service-3
-                ports:
-                        - target: 5002
-                          published: 5000
-                          protocol: tcp
-        service4:
-                image: localhost:8082/service-4
-                build: ./service-4
-                ports:
-                        - target: 5003
-                          published: 5000
-                          protocol: tcp
-
+- hosts: 127.0.0.1
+  connection: local
+  become: true
+  roles:
+    - nginx
+    - service-1
+    - service-2  
+    - service-3
+    - service-4
