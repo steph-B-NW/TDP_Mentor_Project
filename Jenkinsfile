@@ -23,7 +23,6 @@ pipeline{
 		stage('run services and NGINX') {
 			steps {
 				sh "ExecutePlaybook.sh"
-			}
 		}
 	}
 }
