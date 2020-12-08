@@ -8,7 +8,7 @@ pipeline{
 		}
 		stage('perform Sonarqube SAST test') {
 			steps {
-				sh ("sonarqube.sh")
+				sh ("./sonarqube.sh")
 			}
 		}
 		stage('Install Docker') {
@@ -22,7 +22,7 @@ pipeline{
 		}
 		stage('run services and NGINX') {
 			steps {
-				sh ("ExecutePlaybook.sh") {
+				sh ("./ExecutePlaybook.sh") {
 			}
 		}
 	}
