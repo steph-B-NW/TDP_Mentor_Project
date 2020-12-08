@@ -3,7 +3,7 @@ pipeline{
 	stages {
 		stage('Install Dependencies') {
 			steps {
-				sh ("./dependencies.sh")
+				sh ("./dependencies.sh") 
 			}
 		}
 		stage('perform Sonarqube SAST test') {
@@ -23,6 +23,7 @@ pipeline{
 		stage('run services and NGINX') {
 			steps {
 				sh ("./ExecutePlaybook.sh") {
+					}
 				}
 			}
 		}
