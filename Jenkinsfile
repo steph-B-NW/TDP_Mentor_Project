@@ -16,10 +16,6 @@ pipeline{
 				sh ("./ansible/DockerInstallScript.sh") 
 			}
 		}
-		stage('Build Test Environment') {
-			steps {
-			}
-		}
 		stage('run services and NGINX') {
 			steps {
 				sh ("./ExecutePlaybook.sh") 
