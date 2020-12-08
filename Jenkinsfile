@@ -13,7 +13,7 @@ pipeline{
 		}
 		stage('Install Docker') {
 			steps {
-				sh ("./ansible/DockerInstallScript.sh") {
+				sh ("./ansible/DockerInstallScript.sh") 
 			}
 		}
 		stage('Build Test Environment') {
@@ -22,7 +22,7 @@ pipeline{
 		}
 		stage('run services and NGINX') {
 			steps {
-				sh ("./ExecutePlaybook.sh") {
+				sh ("./ExecutePlaybook.sh") 
 		}
 	}
 }
