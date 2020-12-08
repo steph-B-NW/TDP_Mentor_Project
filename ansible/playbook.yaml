@@ -2,15 +2,16 @@
   connection: local
   become: true
   tasks:
-  - name: 'install apt dependencies for docker'
-    apt:
-      pkg:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - software-properties-common
-      - python3
-      - python3-pip
+    - name: 'Install Testing Python requirements'
+      pip:
+        requirements: /home/student/TDP_Mentor_Project/docker/PythonRequirements.txt
+    - name: 'install docker dependencies'
+      apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
       state: latest
       update_cache: true
   - name: 'Add docker GPG apt key'
